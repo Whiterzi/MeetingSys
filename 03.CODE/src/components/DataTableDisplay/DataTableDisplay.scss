@@ -1,0 +1,62 @@
+@import "../../color.scss";
+.p-datatable {
+
+    .p-datatable-wrapper {
+        .p-datatable-table {
+            .p-datatable-thead tr {
+                width: 100%;
+                justify-content: space-evenly;
+                align-items: center;
+                background-color: $primary;
+                th {
+                    background-color: $secondary;
+                    color: $display-color;
+                    font-family: "Roboto Mono";
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 2.5rem;
+                    border: none;
+                    div {
+                        justify-content: center;
+                    }
+                }
+            }
+            .p-datatable-tbody {
+                #account-button{
+                    background-color: $display-color;
+                    color: $primary;
+                    line-height: 4rem;
+                    font-size: 2rem;
+                    width: 100%;
+                    border-radius: 20px;
+                }
+                tr {
+                background-color: $secondary;
+                color: $display-color;
+                border: none;
+                font-family: "Roboto Mono";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.7rem;
+                td {
+                    border: none;
+                    text-align: center;
+                }
+            }
+            }
+        }
+    }
+    .p-paginator {
+        background-color: $secondary;
+        border: none;
+        bottom: 0;
+        grid-row: 7;
+        span {
+            color: $display-color;
+        }
+        .p-paginator-pages button {
+            background-color: $primary;
+            color: $display-color;
+        }
+    }
+}

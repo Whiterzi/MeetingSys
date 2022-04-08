@@ -1,0 +1,33 @@
+@import "../../color.scss";
+
+#title-container {
+    grid-column: 1 /13;
+    color: $display-color;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: flex-end;
+    user-select: none;
+    #title {
+        grid-column: 6/8;
+        font-family: "Roboto Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3rem;
+        align-items: center;
+        text-align: center;
+    }
+    #home-button {
+        grid-column: 11/13;
+        font-family: "Roboto Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3rem;
+        text-align: left;
+        color: $display-color;
+        #home-svg{
+            fill:$display-color;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}

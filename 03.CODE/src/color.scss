@@ -1,0 +1,21 @@
+$primary: #f9dec9;
+$secondary: #e9afa3;
+$display-color: #3a405a;
+$sub-color: #aec5eb;
+$sucess: #82cb60;
+$optioning: #e1774b;
+
+.page-container {
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 3rem repeat(5, 1fr) 3rem;
+    gap: 1rem;
+    color: $display-color;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 700;
+}

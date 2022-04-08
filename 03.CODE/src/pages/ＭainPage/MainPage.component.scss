@@ -1,0 +1,276 @@
+@import "../../color.scss";
+
+.container {
+    user-select: none;
+    height: 100vh;
+    background-color: $primary;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 2% repeat(5, 1fr) 5%;
+    gap: 1rem;
+    // a:setting , b:area-manage , c:account-manage
+    // d:room-order , e:room-info , f:history , g:meeting-manage
+    grid-template-areas:
+        ". . . . . . . . . . . ."
+        ". a . . . . . . b b c c"
+        ". d d d d d e e e f f ."
+        ". d d d d d e e e f f ."
+        ". d d d d d g g g g g ."
+        ". d d d d d g g g g g ."
+        ". . . . . . . . . . . .";
+
+    .setting {
+        grid-area: a;
+        width: 80px;
+        height: 80px;
+        z-index: 2;
+        margin-left: -50px;
+    }
+    .open-rotate-animation {
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        animation: rotation-on 2s;
+    }
+    .close-rotate-animation {
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        animation: rotation-off 2s;
+    }
+    @keyframes rotation-on {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes rotation-off {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    #area-manage {
+        grid-area: b;
+
+        font-family: "Roboto Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: $display-color;
+        text-align: right;
+    }
+    #account-manage {
+        grid-area: c;
+
+        font-family: "Roboto Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: $display-color;
+        text-align: left;
+    }
+
+    .room-order {
+        grid-area: d;
+        background-color: #3a4660;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        align-items: flex-end;
+        animation: dissolve-room-order 1s;
+        @keyframes dissolve-room-order {
+            0% {
+                opacity: 0;
+                transform: translateX(-10rem);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        div {
+            grid-column: 2/9;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 1px #4363a8;
+            height: fit-content;
+        }
+    }
+    .room-info {
+        grid-area: e;
+        background-color: #c9af98;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        animation: dissolve-room-info 1.2s;
+        @keyframes dissolve-room-info {
+            0% {
+                opacity: 0;
+                transform: translateY(-10rem);
+            }
+            20% {
+                opacity: 0;
+                transform: translateY(-10rem);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        div {
+            grid-column: 1/9;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 3.5rem;
+            text-align: center;
+
+            color: #ffffff;
+        }
+    }
+    .history {
+        grid-area: f;
+        background-color: rgba(132, 80, 7, 0.7);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        animation: dissolve-history 1.2s;
+        @keyframes dissolve-history {
+            0% {
+                opacity: 0;
+                transform: translateX(10rem);
+            }
+            30% {
+                opacity: 0;
+                transform: translateX(10rem);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        div {
+            grid-column: 10/12;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 3.5rem;
+            line-height: 4rem;
+            width: 4rem;
+            padding-top: 20%;
+            text-align: center;
+            color: #ffffff;
+        }
+    }
+    .meeting-manage {
+        grid-area: g;
+        background-color: #ed8a63;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        align-items: flex-end;
+        animation: dissolve-meeting-manage 1.2s;
+        @keyframes dissolve-meeting-manage {
+            0% {
+                opacity: 0;
+                transform: translateY(10rem);
+            }
+            40% {
+                opacity: 0;
+                transform: translateY(10rem);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        div {
+            grid-column: 8/13;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 4rem;
+            text-align: center;
+
+            color: #ffffff;
+        }
+    }
+    .side-bar {
+        height: 100vh;
+        grid-column: 1/4;
+        transform: translate(-100%);
+        background-color: $secondary;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        position: relative;
+        #notify {
+            grid-column: 3 /8;
+            grid-row: 3;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: $display-color;
+            text-align: center;
+        }
+        #change-pw {
+            grid-column: 3 /8;
+            grid-row: 4;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: $display-color;
+            text-align: center;
+        }
+        #setting-title {
+            position: absolute;
+            grid-column: 4/12;
+            font-family: "Roboto Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 9rem;
+            color: $display-color;
+            opacity: 0.3;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    .open-slide {
+        transform: translate(0);
+        animation: slide-open 2s;
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        @keyframes slide-open {
+            0% {
+                transform: translate(-100%);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+    }
+    .close-slide {
+        transform: translate(-100%);
+        animation: slide-close 1.2s;
+        @keyframes slide-close {
+            0% {
+                transform: translate(0);
+            }
+            100% {
+                transform: translate(-100%);
+            }
+        }
+    }
+}
