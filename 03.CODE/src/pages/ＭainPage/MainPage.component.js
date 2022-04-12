@@ -34,38 +34,29 @@ const MainPage = () => {
     }
     return (
         <>
-            <PopWindow type="pw-change" stat={PwBubble} statfunction={setPwBubble} />
-            <div className="container" id="container" onClick={onSettingClick}>
-                <div className={`setting ${SidebarState !== 'init' && (SidebarState ? 'open-rotate-animation' : 'close-rotate-animation')}`}>
-                    <SettingSVG id='setting' fill="fff" />
+
+            {/* <PopWindow type="pw-change" stat={PwBubble} statfunction={setPwBubble} /> */}
+            <div className="page-container">
+                <div className="main-header">
+                    <SettingSVG className={`setting ${SidebarState ? 'open-rotate-animation' : 'close-rotate-animation'} `}
+                        id='setting'
+                        onClick={onSettingClick} />
+                    <span id="header-area">區域管理</span>
+                    <span id="header-account">帳號管理</span>
+                    <span id="header-reserve">快速預約</span>
                 </div>
-                <div id='area-manage'>
-                    區域管理
-                </div>
-                <div id='account-manage'>
-                    帳號管理
-                </div>
-                <div className="room-order" id='room-order'>
-                    <div id='room-order'>會議室預約</div>
-                </div>
-                <div className="room-info" id='room-info'>
-                    <div id='room-info'>會議室資訊</div>
-                </div>
-                <div className="meeting-manage" id='meeting-manage'>
-                    <div id='meeting-manage'>會議管理</div>
-                </div>
-                <div className="history" id='history'>
-                    <div id='history'>歷史紀錄</div>
-                </div>
-                <div id="sidebar" className={`side-bar ${SidebarState !== 'init' && (SidebarState ? 'open-slide' : 'close-slide')}`}>
-                    <div id='notify'>
-                        通知設定
+                <div className="main-body">
+                    <div id="block-reserve">
+                        <span>會議室預約</span>
                     </div>
-                    <div id='change-pw' onClick={onPwChange}>
-                        修改密碼
+                    <div id="block-info">
+                        <span>會議室資訊</span>
                     </div>
-                    <div id='setting-title'>
-                        設定
+                    <div id="block-history">
+                        <span>歷史紀錄</span>
+                    </div>
+                    <div id="block-manage">
+                        <span>會議管理</span>
                     </div>
                 </div>
             </div>

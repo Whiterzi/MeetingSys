@@ -9,8 +9,7 @@ import GeneralParameters from './components/GeneralParamters';
 import './App.css';
 import { Toast } from 'primereact/toast';
 import MainPage from './pages/ＭainPage/MainPage.component';
-import HistoryPage from './pages/HistoryPage/HistoryPage';
-import AccountManage from './pages/AccountManage/AccountManage';
+
 
 const App = () => {
   console.log('start App', process.env.NODE_ENV);
@@ -26,8 +25,6 @@ const App = () => {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='*' element={<MainPage />} />
-          <Route path='/historypage' element={<HistoryPage />} />
-          <Route path='/accountmanage' element={<AccountManage />}/>
         </Routes>
     </>
   );
